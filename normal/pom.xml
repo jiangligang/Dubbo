@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>dubboparent</artifactId>
+        <groupId>com.jiang</groupId>
+        <version>1.0-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath><!--引入父工程配置--><!--夫工程配置的<dependencies> 子工厂可用-->
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>normal</artifactId>
+    <dependencies>
+    <!--**********************引入freemarker模板引擎 或 thymeleaf模板引擎 不用加载spring-boot-starter-web配置 **********-->
+    <!--  springboot配置-->
+    <!--spring-boot-starter-web 引入默认http引擎 tomcat he springmvc 不用配置就可用web服务-->
+
+
+    </dependencies>
+
+</project>

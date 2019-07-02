@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Thymeleaf</title>
+</head>
+
+<body>
+<div style=" background-color: brown" >
+    <h1 th:inline="text">Hello.v.2</h1>
+    <p th:text="${email}"></p>
+    <p th:text="${flag}"></p>
+    <span th:text="${date}">2018-09-21 17:30:36</span>
+    <div th:if="${flag}">
+        若flag为true,则会显示出来
+    </div>
+    <div th:if="${s gt 8}">
+        若flag为true,则会显示出来
+    </div>
+
+    <form action="/common">
+        <input type="email" th:value="${email}">
+        用户：<button>thyme</button>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,21 @@
+input,textarea:focus {
+	outline: none;
+}
+input{ padding:0; border:none 0;}
+#login_main .ipt{border: 1px solid #bac7d2;margin-bottom: 15px;background-color:#ecf5fa;padding: 2px 2px 2px 35px;position: relative; width:330px; border-radius:5px;}
+#login_main .ipt input{ width:310px;}
+#login_main .ipt img{position: absolute;left:10px;.left:-20px;top:10px;}
+#login_main input{height: 30px;line-height: 32px;}
+
+*{ font-size:12px; font-family:Arial, Helvetica, sans-serif;}
+body,h1,h2,p,h3,dd,dl{ margin:0;}
+
+img{ border:none 0;}
+
+input{
+	background-position:right;
+}
+
+form{padding-left:6px;}
+
+.shortDate,.longDate{background: url(../../images/date_icon.png) no-repeat fixed right;}

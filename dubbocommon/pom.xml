@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.jiang</groupId>
+    <artifactId>dubbocommon</artifactId>
+    <packaging>jar</packaging>
+    <!--spring-boot-starter 启动器 43种-->
+    <parent><!--parent 继承含义 1.使用Java编译级别 2.使用utf-8编码 3.实现了通用的测试框架junit 4.资源过滤 5.插件配置-->
+       <!-- <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.0.8.RELEASE</version>-->
+        <!--<version>1.5.3.RELEASE</version>-->
+        <groupId>com.jiang</groupId>
+        <artifactId>dubboparent</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <dependencies>
+        <!--**********************引入freemarker模板引擎 或 thymeleaf模板引擎 不用加载spring-boot-starter-web配置 **********-->
+        <!--  springboot配置-->
+        <!--spring-boot-starter-web 引入默认http引擎 tomcat he springmvc 不用配置就可用web服务-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <!--********************************************freemarker模板引擎 配置 ********************************************-->
+        <!-- 引入 freemarker 模板依赖 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-freemarker</artifactId>
+        </dependency>
+        <!--********************************************freemarker模板引擎 配置结束 ********************************************-->
+
+        <!--********************************************thymeleaf模板引擎 配置 ********************************************-->
+        <!--　springboot直接引入：-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
+        <!--　非springboot项目使用如下依赖：-->
+        <!-- <dependency>
+             <groupId>org.thymeleaf</groupId>
+             <artifactId>thymeleaf</artifactId>
+             <version>2.1.4</version>
+         </dependency>-->
+        <!-- #spring.thymeleaf.mode = LEGACYHTML5 如果想用 pom加-->
+        <!--<dependency>
+            <groupId>nekohtml</groupId>
+            <artifactId>nekohtml</artifactId>
+            <version>1.9.6.2</version>
+        </dependency>-->
+        <!--*****************************************thymeleaf模板引擎 配置结束 *****************************************-->
+
+
+    </dependencies>
+
+    <!--&lt;!&ndash;打包配置  <packaging>jar</packaging>要有&ndash;&gt;
+    <build>&lt;!&ndash;2.打包&ndash;&gt;&lt;!&ndash;3.Run - Edit configurationd - mavn command line 设置package &ndash;&gt;
+        <finalName>Application</finalName>&lt;!&ndash;打包名&ndash;&gt;
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>&lt;!&ndash;包含mavndbao插件&ndash;&gt;
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>-->
+
+    <!--可以用其它module项目引用-->
+    <profiles>
+        <!-- 部署提供给其他工程依赖用的jar包 -->
+        <profile>
+            <id>rely_jar</id>
+            <activation>
+                <!-- 设置默认激活这个配置 -->
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-compiler-plugin</artifactId>
+                        <configuration>
+                            <source>1.8</source>
+                            <target>1.8</target>
+                        </configuration>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-javadoc-plugin</artifactId>
+                        <version>3.0.0</version>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <!-- 部署common工程发布用的war包 -->
+        <profile>
+            <id>deploy_war</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.springframework.boot</groupId>
+                        <artifactId>spring-boot-maven-plugin</artifactId>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-javadoc-plugin</artifactId>
+                        <version>3.0.0</version>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
+</project>
