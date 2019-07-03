@@ -34,10 +34,10 @@
 
         <!--  springboot配置-->
         <!--spring-boot-starter-web 引入默认http引擎 tomcat he springmvc 不用配置就可用web服务-->
-        <!--<dependency>
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>-->
+        </dependency>
         <!-- springboot单元测试 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
